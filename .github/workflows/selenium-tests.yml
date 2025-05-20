@@ -46,14 +46,16 @@ jobs:
           URL: ${{ secrets.URL }}
 
       - name: Run Maven Install
-        run: mvn install
+        run: |
+          mvn install -DURL="${URL}" -DUSERNAME="${USERNAME}" -DPASSWORD="${PASSWORD}"
         env:
           URL: ${{ secrets.URL }}
           USERNAME: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
 
       - name: Run Maven Tests
-        run: mvn test
+        run: |
+          mvn test -DURL="${URL}" -DUSERNAME="${USERNAME}" -DPASSWORD="${PASSWORD}"
         env:
           URL: ${{ secrets.URL }}
           USERNAME: ${{ secrets.EMAIL }}
