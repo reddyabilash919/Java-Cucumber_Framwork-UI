@@ -47,18 +47,18 @@ jobs:
 
       - name: Run Maven Install
         run: |
-          mvn install -DURL="${URL}" -DUSERNAME="${USERNAME}" -DPASSWORD="${PASSWORD}"
+          mvn install -DURL="${URL}" -DEMAIL="${EMAIL}" -DPASSWORD="${PASSWORD}"
         env:
           BROWSER: ${{ secrets.BROWSER }}
           URL: ${{ secrets.URL }}
-          USERNAME: ${{ secrets.EMAIL }}
+          EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
 
       - name: Run Maven Tests
         run: |
-          mvn test -DURL="${URL}" -DUSERNAME="${USERNAME}" -DPASSWORD="${PASSWORD}"
+          mvn test -DURL="${URL}" -DUSERNAME="${EMAIL}" -DPASSWORD="${PASSWORD}"
         env:
           BROWSER: ${{ secrets.BROWSER }}
           URL: ${{ secrets.URL }}
-          USERNAME: ${{ secrets.EMAIL }}
+          EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
