@@ -1,4 +1,4 @@
-name: Run Selenium Tests
+name: Run Java Cucumber Selenium Tests
 on:
   push:
     branches:
@@ -46,8 +46,7 @@ jobs:
           URL: ${{ secrets.URL }}
 
       - name: Run Maven Install
-        run: |
-          mvn install -DURL="${URL}" -DEMAIL="${EMAIL}" -DPASSWORD="${PASSWORD}"
+        run: mvn install
         env:
           BROWSER: ${{ secrets.BROWSER }}
           URL: ${{ secrets.URL }}
@@ -55,8 +54,7 @@ jobs:
           PASSWORD: ${{ secrets.PASSWORD }}
 
       - name: Run Maven Tests
-        run: |
-          mvn test -DURL="${URL}" -DUSERNAME="${EMAIL}" -DPASSWORD="${PASSWORD}"
+        run: mvn test
         env:
           BROWSER: ${{ secrets.BROWSER }}
           URL: ${{ secrets.URL }}
