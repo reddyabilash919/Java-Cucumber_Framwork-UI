@@ -1,6 +1,6 @@
 package com.automationpractice.hooks;
 
-import com.automationpractice.Driver.DriverManager;
+import com.automationpractice.driver.DriverManager;
 import com.automationpractice.utils.Config;
 
 import io.cucumber.java.After;

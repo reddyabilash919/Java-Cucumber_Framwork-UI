@@ -2,7 +2,7 @@ package com.automationpractice.stepdefinitions;
 
 import static org.junit.Assert.assertEquals;
 
-import com.automationpractice.Driver.DriverManager;
+import com.automationpractice.driver.DriverManager;
 import com.automationpractice.pages.BasePage;
 import com.automationpractice.pages.SignInPage;
 import com.automationpractice.utils.Config;

@@ -41,17 +41,31 @@ A robust, scalable, and maintainable UI test automation framework using Java, Cu
 
 ## Project Structure
 
-`src/
+## Project Structure
+
+```plaintext
+src/
 ├── main/
 │   └── java/
-│       └── pages/                 # Page Object classes
-├── test/
-│   ├── java/
-│   │   ├── stepdefinitions/       # Cucumber step definitions
-│   │   └── runners/               # Cucumber test runners
-│   └── resources/
-│       └── features/              # Gherkin feature files`
+│       ├── driver/                 # WebDriver management classes
+│       ├── pages/                  # Page Object classes
+│       └── utils/                  # Utility/helper classes
+└── test/
+    ├── java/
+    │   ├── stepdefinitions/        # Cucumber step definitions
+    │   ├── runners/                # Cucumber test runners
+    │   └── hooks/                  # Test hooks (e.g., setup/teardown)
+    └── resources/
+        └── features/               # Gherkin feature files
+```
 
+- `driver`: WebDriver initialization and management
+- `pages`: Page Object classes
+- `utils`: Utility/helper classes
+- `stepdefinitions`: Cucumber step definitions
+- `runners`: Test runner classes
+- `hooks`: Test setup and teardown hooks
+- `features`: Gherkin feature files
 - `stepdefinitions`: Cucumber step definitions
 - `pages`: Page Object classes
 - `runners`: Test runner classes
@@ -60,7 +74,7 @@ A robust, scalable, and maintainable UI test automation framework using Java, Cu
 ## Writing Tests
 
 1. **Create a feature file** in `src/test/resources/features`.
-2. **Implement step definitions** in `src/test/java/com/automationpracticestepdefinitions`.
+2. **Implement step definitions** in `src/test/java/com/automationpractice/stepdefinitions`.
 3. **Add page objects** in `src/main/java/pages` as needed.
 
 ## Reporting
