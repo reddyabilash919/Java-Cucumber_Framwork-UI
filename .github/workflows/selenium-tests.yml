@@ -45,14 +45,6 @@ jobs:
         env:
           URL: ${{ secrets.URL }}
 
-      - name: Run Maven Install
-        run: mvn install
-        env:
-          BROWSER: ${{ secrets.BROWSER }}
-          URL: ${{ secrets.URL }}
-          EMAIL: ${{ secrets.EMAIL }}
-          PASSWORD: ${{ secrets.PASSWORD }}
-
       - name: Run Maven Tests and Generate Reports
         run: mvn clean test verify
         env:
