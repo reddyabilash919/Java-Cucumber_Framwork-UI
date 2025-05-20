@@ -1,4 +1,0 @@
-com\automationpractice\stepdefinitions\HomePageSteps.class
-com\automationpractice\hooks\Hooks.class
-com\automationpractice\runners\CucumberTestRunner.class
-com\automationpractice\stepdefinitions\SignInPageSteps.class
