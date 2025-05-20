@@ -1,0 +1,60 @@
+name: Run Selenium Tests
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  selenium-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: "17"
+          distribution: "temurin"
+
+      - name: Install Chrome 136
+        run: |
+          wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/136.0.7103.92/linux64/chrome-linux64.zip
+          unzip chrome-linux64.zip
+          sudo mv chrome-linux64 /opt/chrome136
+          sudo ln -sf /opt/chrome136/chrome /usr/bin/google-chrome
+
+      - name: Install ChromeDriver 136
+        run: |
+          wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/136.0.7103.92/linux64/chromedriver-linux64.zip
+          unzip chromedriver-linux64.zip
+          chmod +x chromedriver-linux64/chromedriver
+          sudo mv chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
+
+      - name: Verify Chrome
+        run: /usr/bin/google-chrome --version
+
+      - name: Verify ChromeDriver version
+        run: /usr/local/bin/chromedriver --version
+
+      - name: Set environment variables
+        run: echo "Running with URL=$URL"
+        env:
+          URL: ${{ secrets.URL }}
+
+      - name: Run Maven Install
+        run: mvn install
+        env:
+          URL: ${{ secrets.URL }}
+          USERNAME: ${{ secrets.EMAIL }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+
+      - name: Run Maven Tests
+        run: mvn test
+        env:
+          URL: ${{ secrets.URL }}
+          USERNAME: ${{ secrets.EMAIL }}
+          PASSWORD: ${{ secrets.PASSWORD }}
