@@ -58,10 +58,25 @@
     </plugin>
     
     <plugin>
-            <groupId>net.masterthought</groupId>
-            <artifactId>maven-cucumber-reporting</artifactId>
-            <version>5.7.0</version>
-      </plugin>
+    <groupId>net.masterthought</groupId>
+    <artifactId>maven-cucumber-reporting</artifactId>
+    <version>5.7.0</version>
+    <executions>
+        <execution>
+            <id>generate-cucumber-html-report</id>
+            <phase>verify</phase>
+            <goals>
+                <goal>generate</goal>
+            </goals>
+            <configuration>
+                <projectName>java-cucumber-framework</projectName>
+                <jsonFiles>
+                    <param>target/cucumber.json</param>
+                </jsonFiles>
+            </configuration>
+        </execution>
+    </executions>
+    </plugin>
 
     <!-- Run tests with JUnit + Cucumber -->
     <plugin>
