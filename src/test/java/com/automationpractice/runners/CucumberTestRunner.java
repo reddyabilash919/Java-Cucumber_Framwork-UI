@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = {"com.automationpractice.hooks", "com.automationpractice.stepdefinitions"},
-        plugin = {"pretty", "html:target/cucumber-report.html"},
+        plugin = {"pretty", "json:target/cucumber-reports/cucumber.json", "html:target/cucumber-reports/cucumber.html"},
         monochrome = true
 )
 public class CucumberTestRunner {
