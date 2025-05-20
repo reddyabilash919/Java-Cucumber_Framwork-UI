@@ -49,6 +49,7 @@ jobs:
         run: |
           mvn install -DURL="${URL}" -DUSERNAME="${USERNAME}" -DPASSWORD="${PASSWORD}"
         env:
+          BROWSER: ${{ secrets.BROWSER }}
           URL: ${{ secrets.URL }}
           USERNAME: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
@@ -57,6 +58,7 @@ jobs:
         run: |
           mvn test -DURL="${URL}" -DUSERNAME="${USERNAME}" -DPASSWORD="${PASSWORD}"
         env:
+          BROWSER: ${{ secrets.BROWSER }}
           URL: ${{ secrets.URL }}
           USERNAME: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
