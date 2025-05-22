@@ -46,12 +46,10 @@ jobs:
           URL: ${{ secrets.URL }}
 
       - name: Run Maven Tests and Generate Reports
-        run: mvn clean test verify
+        run: mvn clean test
         env:
           BROWSER: ${{ secrets.BROWSER }}
           URL: ${{ secrets.URL }}
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
           DRIVERPATH: ${{ secrets.DRIVERPATH }}
-
- 
