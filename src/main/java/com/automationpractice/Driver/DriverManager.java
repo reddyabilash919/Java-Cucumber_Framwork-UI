@@ -14,11 +14,11 @@ public class DriverManager {
     public static void initDriver(String browser) {
 
         if (browser.equalsIgnoreCase("chrome")) {
-       
-           System.setProperty("webdriver.chrome.driver", Config.DRIVERPATH);
-           ChromeOptions options = new ChromeOptions();
-           options.addArguments("--headless=new", "--disable-gpu", "--no-sandbox", "--disable-dev-shm-usage");
-           driver.set(new ChromeDriver(options));
+
+            System.setProperty("webdriver.chrome.driver", Config.DRIVERPATH);
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--headless=new", "--disable-gpu", "--no-sandbox", "--disable-dev-shm-usage");
+            driver.set(new ChromeDriver(options));
 
         } else if (browser.equalsIgnoreCase("edge")) {
             driver.set(new EdgeDriver());
