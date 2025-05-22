@@ -30,4 +30,9 @@ public class BasePage {
     public void navigateToHomePage(String url) {
         driver.get(url);
     }
+
+    public void clickOnContactUsMenu() {
+        WebElement contactUsButton = driver.findElement(By.id("contact-link"));
+        contactUsButton.click();
+    }
 }

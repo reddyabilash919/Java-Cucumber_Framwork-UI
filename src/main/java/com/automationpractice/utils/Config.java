@@ -14,4 +14,6 @@ public abstract class Config {
 
     public static final String PASSWORD = dotenv.get("PASSWORD") != null ? dotenv.get("PASSWORD") : System.getenv("PASSWORD");
 
+     public static final String DRIVERPATH = dotenv.get("DRIVERPATH") != null ? dotenv.get("DRIVERPATH") : System.getenv("DRIVERPATH");
+
 }
